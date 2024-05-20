@@ -84,7 +84,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-danger shadow h-100 py-2">
-                                    <a href="/new-requests">
+                                    <a href="<?=BASEURL .'/admin/new-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
@@ -110,7 +110,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-primary shadow h-100 py-2">
-                                    <a href="/all-requests">
+                                    <a href="<?=BASEURL .'/admin/all-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
@@ -132,7 +132,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-success shadow h-100 py-2">
-                                    <a href="/completed-requests">
+                                    <a href="<?=BASEURL .'/admin/completed-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
@@ -152,7 +152,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-info shadow h-100 py-2">
-                                    <a href="/assigned-requests">
+                                    <a href="<?=BASEURL .'/admin/assigned-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
@@ -186,7 +186,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-warning shadow h-100 py-2">
-                                    <a href="/team-ontheway-requests">
+                                    <a href="<?=BASEURL .'/admin/team-ontheway-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
@@ -212,7 +212,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                             <div class="col-xl-4 col-md-6 mb-4">
                                 <div class="card border-left-info shadow h-100 py-2">
-                                    <a href="/workin-progress-requests">
+                                    <a href="<?=BASEURL .'/admin/workin-progress-requests'?>">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
