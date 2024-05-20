@@ -27,7 +27,7 @@
                 <p>Together, we continue to empower first responders
                     with data and insights that drive quality and performance
                     improvements across the entire health and public safety spectrum.</p>
-                <a class="btn btn-primary" href="/reporting">Fire Reporting</a>
+                <a class="btn btn-primary" href="reporting">Fire Reporting</a>
             </div>
         </div>
         <!-- Call to Action-->
