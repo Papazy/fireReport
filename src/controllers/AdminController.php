@@ -59,9 +59,7 @@ public function logout() {
     $this->view('admin/fire-control-teams/manage-teams');
   }
 
-  public function show_manage_site(){
-    $this->view('admin/manage-site');
-  }
+
 
 
 }

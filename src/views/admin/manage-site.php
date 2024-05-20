@@ -3,45 +3,6 @@ error_reporting(0);
 //DB conncetion
 include_once(__DIR__ .'/../components/config.php');
 //validating Session
-if (strlen($_SESSION['aid'] == 0)) {
-    header('location:logout.php');
-} else {
-
-
-    if (isset($_POST['submit'])) {
-        $wtitle = $_POST['webtitle'];
-        $cphoto = $_POST['currentphoto'];
-        $imgfile = $_FILES["image"]["name"];
-        $currentppath = "uploadeddata" . "/" . $cphoto;
-        // get the image extension
-        $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
-        // allowed extensions
-        $allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
-        // Validation for allowed extensions .in_array() function searches an array for a specific value.
-        $uname = $_SESSION['uname'];
-        $uip = $_SERVER['REMOTE_ADDR'];
-        $link = $_SERVER['REQUEST_URI'];
-        $action = 'Manage Site';
-
-        if (!in_array($extension, $allowed_extensions)) {
-            $status = 0;
-            mysqli_query($con, "insert into  tbllogs(userName,userIp,userAction,actionUrl,actionStatus) values('$uname','$uip','$action','$link','$status')");
-            echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-        } else {
-            //rename the image file
-            $imgnewfile = md5($imgfile) . $extension;
-            // Code for move image into directory
-            move_uploaded_file($_FILES["image"]["tmp_name"], "uploadeddata/" . $imgnewfile);
-
-            $sql = mysqli_query($con, "update tblsite set siteLogo='$imgnewfile',siteTitle='$wtitle'");
-            unlink($currentppath);
-            $status = 1;
-            mysqli_query($con, "insert into  tbllogs(userName,userIp,userAction,actionUrl,actionStatus) values('$uname','$uip','$action','$link','$status')");
-            echo "<script>alert('Website Details Updated');</script>";
-            //echo "<script>window.location.href='manage-employee.php'</script>";
-        }
-    }
-
 ?>
 
     <!DOCTYPE html>
@@ -95,7 +56,7 @@ if (strlen($_SESSION['aid'] == 0)) {
 
                         <!-- Page Heading -->
                         <h1 class="h3 mb-4 text-gray-800">Manage Website</h1>
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="POST" enctype="multipart/form-data" action="<?=BASEURL .'/admin/update-site'?>">
 
                             <?php
                             $query = mysqli_query($con, "select * from tblsite");
@@ -177,4 +138,3 @@ if (strlen($_SESSION['aid'] == 0)) {
     </body>
 
     </html>
-<?php } ?>

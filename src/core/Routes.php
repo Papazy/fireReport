@@ -40,7 +40,8 @@ class Routes
 
     $router->get('/admin/delete-team/(:id)', ['TeamController', 'delete_team']);
 
-    $router->get('/admin/manage-site', ['AdminController', 'show_manage_site']);
+    $router->get('/admin/manage-site', ['SiteController', 'index']);
+    $router->post('/admin/update-site', ['SiteController', 'updateSite']);
 
     $router->get('/admin/new-requests', ['RequestController', 'show_new_requests']);
 

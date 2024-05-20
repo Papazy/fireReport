@@ -23,4 +23,23 @@ class Site extends Database
     return $this->get(['id' => $id])->fetch();
   }
     
+  public function insert($data){
+    $table = [
+        'siteTitle' => $data['siteTitle'],
+        'siteLogo' => $data['siteLogo']
+    ];
+    return $this->insertData($table);
+  }
+  
+  public function update($data){
+    $table = [
+        'siteTitle' => $data['siteTitle'],
+        'siteLogo' => $data['siteLogo']
+    ];
+    $key = [
+        'id' => $data['id']
+    ];
+    return $this->updateData($table, $key);
+  }
+
 }
