@@ -22,7 +22,8 @@ class Routes
     $router->post('/admin/login', ['AdminController', 'login']);
     $router->get('/admin', ['AdminController', 'show']);
     $router->get('/admin/dashboard', ['AdminController', 'show']);
-
+    $router->get('/admin/profile', ['AdminController', 'profile']);
+    $router->post('/admin/update-profile', ['AdminController', 'update_profile']);
     $router->get('/admin/add-team', ['AdminController', 'show_add_team']);
     $router->get('/admin/manage-teams', ['AdminController', 'show_manage_team']);
     $router->post('/admin/insert-team', ['TeamController', 'insert_team']);

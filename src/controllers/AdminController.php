@@ -82,7 +82,36 @@ public function logout() {
     }
     $this->view('admin/index');
 }
+
+  public function profile(){
+    $adminModel = new Admin();
+    $data = $adminModel->getById($_SESSION['aid']);
+    $this->view('admin/profile', ['data' => $data]);
+    
   }
+  
+  
+  public function update_profile(){
+    $adminId = $_SESSION['aid'];
+    $aname = $_POST['adminname'];
+    $mobno = $_POST['mobilenumber'];
+    $email = $_POST['email'];
+    
+    $adminModel = new Admin();
+    $result = $adminModel->updateProfile($adminId, $aname, $mobno, $email);
+    
+    
+    if ($result) {
+      echo '<script>alert("Profile has been updated")</script>';
+    } else {
+      echo '<script>alert("Something Went Wrong. Please try again.")</script>';
+    }
+    $data = $adminModel->getById($_SESSION['aid']);
+    $this->view('admin/profile', ['data' => $data]);
+    
+  }
+
+}
 
 
 

@@ -35,6 +35,22 @@ class Admin extends Database
       return $this->get()->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getById($id)
+    {
+      return $this->get(['ID' => $id])->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateProfile($adminId, $aname, $mobno, $email)
+    {
+        $sql = "UPDATE tbladmin SET AdminName = :aname, MobileNumber = :mobno, Email = :email WHERE ID = :adminId";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':adminId', $adminId, PDO::PARAM_INT);
+        $stmt->bindParam(':aname', $aname, PDO::PARAM_STR);
+        $stmt->bindParam(':mobno', $mobno, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        return $stmt->execute();
+    }
+
     public function login($username, $password)
     {
         $query = "SELECT ID, AdminName, isActive FROM tbladmin WHERE AdminuserName = :username AND Password = :password";
