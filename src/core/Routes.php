@@ -55,6 +55,9 @@ class Routes
     $router->get('/admin/workin-progress-requests', ['RequestController', 'show_workin_progress_requests']);
     $router->get('/admin/completed-requests', ['RequestController', 'show_completed_requests']);
     $router->get('/admin/bwdates-report-ds', ['ReportController', 'show_bwdates_report_ds']);
+    $router->get('/admin/search-report', ['ReportController', 'show_search_report']);
+    $router->post('/admin/search-report', ['ReportController', 'search_report']);
+    $router->post('/admin/search-report-by-date', ['ReportController', 'search_report_by_date']);
 
     $router->run();
   }
