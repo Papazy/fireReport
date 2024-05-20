@@ -65,10 +65,7 @@ include(__DIR__ .'/../components/config.php');
                                             <input type="submit" name="login" class="btn btn-primary btn-user btn-block" value="login">
                                         </form>
                                         <hr>
-                                        <div class="text-center">
-                                            <a class="small" href="password-recovery.php" style="font-weight:bold">Forgot Password?</a>
-
-                                        </div>
+                                        
 
                                         <div class="text-center">
                                             <a class="small" href="<?=BASEURL?>" style="font-weight:bold;"><i class="fa fa-home" aria-hidden="true"></i> Home Page</a>

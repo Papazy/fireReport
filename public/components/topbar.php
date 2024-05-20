@@ -66,7 +66,7 @@ while($row1=mysqli_fetch_array($ret1)){
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="change-password.php">
+                                <a class="dropdown-item" href="change-password">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                   Change Password
                                 </a>

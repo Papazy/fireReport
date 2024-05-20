@@ -1,34 +1,10 @@
-<?php 
-//DB conncetion
-include_once('includes/config.php');
+<?php include_once(__DIR__ .'/../components/config.php');
 //validating Session
 if (strlen($_SESSION['aid']==0)) {
   header('location:logout.php');
   } else{
 
 
- if(isset($_POST['submit']))
-{
-$adminid=$_SESSION['aid'];
-$cpassword=md5($_POST['currentpassword']);
-$newpassword=md5($_POST['newpassword']);
-$query=mysqli_query($con,"select ID from tbladmin where ID='$adminid' and   Password='$cpassword'");
-$row=mysqli_fetch_array($query);
-$uname=$_SESSION['uname'];     
-$uip = $_SERVER ['REMOTE_ADDR'];
-$link= $_SERVER['REQUEST_URI'];
-$action='Password Updation';
-if($row>0){
-  $status=1;
-      mysqli_query($con,"insert into  tbllogs(userName,userIp,userAction,actionUrl,actionStatus) values('$uname','$uip','$action','$link','$status')");    
-$ret=mysqli_query($con,"update tbladmin set Password='$newpassword' where ID='$adminid'");
-echo '<script>alert("Your password successully changed.")</script>';
-} else {
-  $status=0;
-      mysqli_query($con,"insert into  tbllogs(userName,userIp,userAction,actionUrl,actionStatus) values('$uname','$uip','$action','$link','$status')");
-echo '<script>alert("Your current password is wrong.")</script>';
-}
-}
 
 ?>
 
@@ -52,7 +28,7 @@ echo '<script>alert("Your current password is wrong.")</script>';
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <style type="text/css">
 label{
     font-size:16px;
@@ -98,7 +74,7 @@ return true;
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Change Password</h1>
-     <form method="post"  name="changepassword" onsubmit="return checkpass();">
+     <form method="POST"  name="changepassword" action="<?=BASEURL .'/admin/update-password'?>">
   <div class="row">
 
                         <div class="col-lg-8">
@@ -160,14 +136,14 @@ return true;
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
 </body>
 </html>

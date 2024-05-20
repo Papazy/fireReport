@@ -10,15 +10,6 @@ class Routes
     $router->setDefaultMethod('index');
     $router->setNamespace('MyApp\Controllers');
 
-    $router->get('/barang', ['BarangController', 'index']);
-    $router->get('/barang/index', ['BarangController', 'index']);
-    $router->get('/barang/insert', ['BarangController', 'insert']);
-    $router->get('/barang/edit/(:id)', ['BarangController', 'edit']);
-    $router->post('/barang/insert_data', ['BarangController', 'insert_barang']);
-    $router->post('/barang/edit_data', ['BarangController', 'edit_barang']);
-    
-    $router->get('/kategori', ['KategoriController', 'index']);
-    
     $router->get('/reporting', ['HomeController', 'report']);
     $router->post('/report', ['HomeController', 'saveReport']);
     $router->get('/search', ['HomeController', 'search']);
@@ -42,6 +33,9 @@ class Routes
 
     $router->get('/admin/manage-site', ['SiteController', 'index']);
     $router->post('/admin/update-site', ['SiteController', 'updateSite']);
+
+    $router->get('/admin/change-password', ['AdminController', 'password_recovery']);
+    $router->post('/admin/update-password', ['AdminController', 'update_password']);
 
     $router->get('/admin/new-requests', ['RequestController', 'show_new_requests']);
 

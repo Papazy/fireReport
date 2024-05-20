@@ -8,6 +8,8 @@ use PDO;
 class Admin extends Database
 {
   
+    private $conn;
+    
 
     public function __construct()
     {
@@ -24,6 +26,8 @@ class Admin extends Database
         'userRole',
         'isActive',
       ]);
+
+      $this->conn = $this->setConnection();
     }
 
     public function getAll()
@@ -40,6 +44,25 @@ class Admin extends Database
         ];
         $stmt = $this->qry($query, $params);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function verifyPassword($adminId, $currentPassword)
+    {
+        $sql = "SELECT ID FROM tbladmin WHERE ID = :adminId AND Password = :currentPassword";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':adminId', $adminId, PDO::PARAM_INT);
+        $stmt->bindParam(':currentPassword', $currentPassword, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updatePassword($adminId, $newPassword)
+    {
+        $sql = "UPDATE tbladmin SET Password = :newPassword WHERE ID = :adminId";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':adminId', $adminId, PDO::PARAM_INT);
+        $stmt->bindParam(':newPassword', $newPassword, PDO::PARAM_STR);
+        return $stmt->execute();
     }
     
 }

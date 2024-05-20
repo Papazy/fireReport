@@ -59,8 +59,33 @@ public function logout() {
     $this->view('admin/fire-control-teams/manage-teams');
   }
 
+  public function password_recovery(){
+    $this->view('admin/change-password');
+  }
 
+  public function update_password(){
+    
+    $adminId = $_SESSION['aid'];
+    $cpassword = md5($_POST['currentpassword']);
+    $newpassword = md5($_POST['newpassword']);
+    
+    $adminModel = new Admin();
+    $row = $adminModel->verifyPassword($adminId, $cpassword);
 
-
+    if ($row) {
+        $adminModel->updatePassword($adminId, $newpassword);
+        $status = 1;
+        echo '<script>alert("Your password has been successfully changed.");</script>';
+    } else {
+        $status = 0;
+        echo '<script>alert("Your current password is wrong.");</script>';
+    }
+    $this->view('admin/index');
 }
+  }
+
+
+
+
+
 
