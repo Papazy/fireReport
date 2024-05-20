@@ -62,4 +62,7 @@ public function logout() {
   public function show_manage_site(){
     $this->view('admin/manage-site');
   }
+
+
 }
+

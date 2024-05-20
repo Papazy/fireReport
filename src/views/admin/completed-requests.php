@@ -1,6 +1,5 @@
-<?php 
-//DB conncetion
-include_once('includes/config.php');
+
+<?php include_once(__DIR__ .'/../components/config.php');
 error_reporting(0);
 //validating Session
 if (strlen($_SESSION['aid']==0)) {
@@ -35,10 +34,10 @@ echo "<script>window.location.href='manage-teams.php'</script>";
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -48,7 +47,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
     <div id="wrapper">
 
         <!-- Sidebar -->
-  <?php include_once('includes/sidebar.php');?>
+  <?php include_once(__DIR__ .'/../components/sidebar.php'); ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -58,7 +57,7 @@ echo "<script>window.location.href='manage-teams.php'</script>";
             <div id="content">
 
                 <!-- Topbar -->
-<?php include_once('includes/topbar.php');?>
+<?php include_once(__DIR__ .'/../components/topbar.php'); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -116,7 +115,7 @@ while($row=mysqli_fetch_array($query)){
                                             <td><?php echo $row['postingDate'];?></td>
                                             <td>
 
-                                <a href="request-details.php?requestid=<?php echo $row['id'];?>" class="btn-sm btn-primary">View</a> 
+                                <a href="request-details/<?php echo $row['id'];?>" class="btn-sm btn-primary">View</a> 
 
                               </td>
                                         </tr>
@@ -135,7 +134,7 @@ while($row=mysqli_fetch_array($query)){
             <!-- End of Main Content -->
 
             <!-- Footer -->
-    <?php include_once('includes/footer.php');?>
+    <?php include_once(__DIR__ .'/../components/footer.php'); ?>
             <!-- End of Footer -->
 
         </div>
@@ -145,24 +144,24 @@ while($row=mysqli_fetch_array($query)){
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <?php include_once('includes/footer2.php');?>
+    <?php include_once(__DIR__ .'/../components/footer2.php'); ?>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo.js"></script>
 </body>
 </html>
 <?php } ?>

@@ -32,7 +32,7 @@ class Report extends Database
 
     public function getById($id)
     {
-        $query = "SELECT * FROM tblreports WHERE id = :id";
+        $query = "SELECT * FROM tblfirereport WHERE id = :id";
         $params = [':id' => $id];
         $stmt = $this->qry($query, $params);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@ class Report extends Database
 
     public function create($data)
     {
-        $query = "INSERT INTO tblreports (fullName, mobileNumber, location, message, assignTo, status, postingDate, assignTime, assignTme) 
+        $query = "INSERT INTO tblfirereport (fullName, mobileNumber, location, message, assignTo, status, postingDate, assignTime, assignTme) 
                   VALUES (:fullName, :mobileNumber, :location, :message, :assignTo, :status, :postingDate, :assignTime, :assignTme)";
         $params = [
             ':fullName' => $data['fullName'],
@@ -58,7 +58,7 @@ class Report extends Database
 
     public function update($id, $data)
     {
-        $query = "UPDATE tblreports SET 
+        $query = "UPDATE tblfirereport SET 
                   fullName = :fullName, 
                   mobileNumber = :mobileNumber, 
                   location = :location, 
@@ -86,7 +86,7 @@ class Report extends Database
 
     public function delete($id)
     {
-        $query = "DELETE FROM tblreports WHERE id = :id";
+        $query = "DELETE FROM tblfirereport WHERE id = :id";
         $params = [':id' => $id];
         return $this->qry($query, $params);
     }

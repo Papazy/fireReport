@@ -81,7 +81,7 @@ return true;
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-<?php include_once('includes/sidebar.php');?>
+<?php include_once(__DIR__ .'/../components/sidebar.php'); ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -90,7 +90,7 @@ return true;
             <div id="content">
 
                 <!-- Topbar -->
-          <?php include_once('includes/topbar.php');?>
+          <?php include_once(__DIR__ .'/../components/topbar.php'); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -146,7 +146,7 @@ return true;
             </div>
             <!-- End of Main Content -->
 
-           <?php include_once('includes/footer.php');?>
+           <?php include_once(__DIR__ .'/../components/footer.php'); ?>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -156,7 +156,7 @@ return true;
 
     <!-- Scroll to Top Button-->
 
-           <?php include_once('includes/footer2.php');?>
+           <?php include_once(__DIR__ .'/../components/footer2.php'); ?>
 
 
     <!-- Bootstrap core JavaScript-->

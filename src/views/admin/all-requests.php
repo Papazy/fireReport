@@ -1,20 +1,4 @@
-<?php 
-//DB conncetion
-include_once('src/views/components/config.php');
-error_reporting(0);
-//validating Session
-if (strlen($_SESSION['aid'] == 0)) {
-    header('location:logout');
-} else {
-
-    //Code for record deletion
-    if ($_GET['teamid']) {
-        $tid = $_GET['teamid'];
-        mysqli_query($con, "delete from tblteams where id ='$tid'");
-        echo "<script>alert('Data Deleted');</script>";
-        echo "<script>window.location.href='manage-teams.php'</script>";
-    }
-?>
+<?php include_once(__DIR__ .'/../components/config.php');?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -33,10 +17,10 @@ if (strlen($_SESSION['aid'] == 0)) {
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="<?=BASEURL .'/css/sb-admin-2.min.css'?>" rel="stylesheet">
 
         <!-- Custom styles for this page -->
-        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     </head>
 
@@ -46,7 +30,7 @@ if (strlen($_SESSION['aid'] == 0)) {
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <?php include_once('src/views/components/sidebar.php'); ?>
+            <?php include_once(__DIR__ .'/../components/sidebar.php'); ?>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
@@ -56,7 +40,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                 <div id="content">
 
                     <!-- Topbar -->
-                    <?php include_once('src/views/components/topbar.php'); ?>
+                    <?php include_once(__DIR__ .'/../components/topbar.php'); ?>
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
@@ -114,7 +98,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                                                     <td><?php echo $row['postingDate']; ?></td>
                                                     <td>
 
-                                                        <a href="request-details.php?requestid=<?php echo $row['id']; ?>" class="btn-sm btn-primary">View</a>
+                                                        <a href="request-details/<?php echo $row['id']; ?>" class="btn-sm btn-primary">View</a>
 
                                                     </td>
                                                 </tr>
@@ -133,7 +117,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                 <!-- End of Main Content -->
 
                 <!-- Footer -->
-                <?php include_once('src/views/components/footer.php'); ?>
+                <?php include_once(__DIR__ .'/../components/footer.php'); ?>
                 <!-- End of Footer -->
 
             </div>
@@ -143,7 +127,7 @@ if (strlen($_SESSION['aid'] == 0)) {
         <!-- End of Page Wrapper -->
 
         <!-- Scroll to Top Button-->
-        <?php include_once('src/views/components/footer2.php'); ?>
+        <?php include_once(__DIR__ .'/../components/footer2.php'); ?>
 
         <!-- Bootstrap core JavaScript-->
         <script src="<?=BASEURL .'/vendor/jquery/jquery.min.js'?>"></script>
@@ -164,4 +148,3 @@ if (strlen($_SESSION['aid'] == 0)) {
     </body>
 
     </html>
-<?php } ?>

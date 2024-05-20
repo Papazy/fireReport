@@ -42,7 +42,7 @@ if (strlen($_SESSION['aid']==0)) {
     <div id="wrapper">
 
         <!-- Sidebar -->
-  <?php include_once('includes/sidebar.php');?>
+  <?php include_once(__DIR__ .'/../components/sidebar.php'); ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -52,7 +52,7 @@ if (strlen($_SESSION['aid']==0)) {
             <div id="content">
 
                 <!-- Topbar -->
-<?php include_once('includes/topbar.php');?>
+<?php include_once(__DIR__ .'/../components/topbar.php'); ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -112,7 +112,7 @@ while($row=mysqli_fetch_array($query)){
                                             <td><?php echo $row['postingDate'];?></td>
                                             <td>
 
-                                <a href="request-details.php?requestid=<?php echo $row['id'];?>" class="btn-sm btn-primary">View</a> 
+                                <a href="request-details/<?php echo $row['id'];?>" class="btn-sm btn-primary">View</a> 
 
                               </td>
                                         </tr>
@@ -133,7 +133,7 @@ while($row=mysqli_fetch_array($query)){
 
 
             <!-- Footer -->
-    <?php include_once('includes/footer.php');?>
+    <?php include_once(__DIR__ .'/../components/footer.php'); ?>
             <!-- End of Footer -->
 
         </div>
@@ -143,7 +143,7 @@ while($row=mysqli_fetch_array($query)){
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <?php include_once('includes/footer2.php');?>
+    <?php include_once(__DIR__ .'/../components/footer2.php'); ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

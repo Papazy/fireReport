@@ -33,10 +33,10 @@ if (strlen($_SESSION['aid'] == 0)) {
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="public/css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../public/css/sb-admin-2.min.css" rel="stylesheet">
 
         <!-- Custom styles for this page -->
-        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     </head>
 
@@ -100,9 +100,9 @@ if (strlen($_SESSION['aid'] == 0)) {
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <?php $query = mysqli_query($con, "select * from tblfirereport where status='Assigned'");
+                                            <?php 
                                             $cnt = 1;
-                                            while ($row = mysqli_fetch_array($query)) {
+                                            foreach($data as $row) {
                                             ?>
 
                                                 <tr>
@@ -114,7 +114,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                                                     <td><?php echo $row['postingDate']; ?></td>
                                                     <td>
 
-                                                        <a href="request-details.php?requestid=<?php echo $row['id']; ?>" class="btn-sm btn-primary">View</a>
+                                                        <a href="request-details/<?php echo $row['id']; ?>" class="btn-sm btn-primary">View</a>
 
                                                     </td>
                                                 </tr>
@@ -153,14 +153,14 @@ if (strlen($_SESSION['aid'] == 0)) {
         <script src="<?=BASEURL .'/vendor/jquery-easing/jquery.easing.min.js'?>"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="../js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="js/demo/datatables-demo.js"></script>
+        <script src="../js/demo/datatables-demo.js"></script>
     </body>
 
     </html>

@@ -29,6 +29,7 @@ class Routes
     $router->get('/admin/login', ['AdminController', 'index']);
     $router->get('/logout', ['AdminController', 'logout']);
     $router->post('/admin/login', ['AdminController', 'login']);
+    $router->get('/admin', ['AdminController', 'show']);
     $router->get('/admin/dashboard', ['AdminController', 'show']);
 
     $router->get('/admin/add-team', ['AdminController', 'show_add_team']);
@@ -40,6 +41,21 @@ class Routes
     $router->get('/admin/delete-team/(:id)', ['TeamController', 'delete_team']);
 
     $router->get('/admin/manage-site', ['AdminController', 'show_manage_site']);
+
+    $router->get('/admin/new-requests', ['RequestController', 'show_new_requests']);
+
+    $router->get('/admin/request-details/(:id)', ['RequestController', 'show_request_details']);
+    $router->get('/admin/all-requests', ['RequestController', 'show_all_requests']);
+
+    $router->get('/admin/assigned-requests', ['RequestController', 'show_assigned_requests']);
+    $router->post('/admin/assign-request', ['RequestController', 'assign_request']);
+    
+    $router->post('/admin/take-action', ['RequestController', 'update_action']);
+    $router->get('/admin/team-ontheway-requests', ['RequestController', 'show_team_ontheway_requests']);
+    $router->get('/admin/workin-progress-requests', ['RequestController', 'show_workin_progress_requests']);
+    $router->get('/admin/completed-requests', ['RequestController', 'show_completed_requests']);
+    $router->get('/admin/bwdates-report-ds', ['ReportController', 'show_bwdates_report_ds']);
+
     $router->run();
   }
 }
