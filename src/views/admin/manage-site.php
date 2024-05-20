@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 //DB conncetion
-include_once('includes/config.php');
+include_once(__DIR__ .'/../components/config.php');
 //validating Session
 if (strlen($_SESSION['aid'] == 0)) {
     header('location:logout.php');
@@ -62,7 +62,7 @@ if (strlen($_SESSION['aid'] == 0)) {
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
         <style type="text/css">
             label {
                 font-size: 16px;
@@ -78,7 +78,7 @@ if (strlen($_SESSION['aid'] == 0)) {
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-            <?php include_once('includes/sidebar.php'); ?>
+        <?php include_once(__DIR__ .'/../components/sidebar.php');?>
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
@@ -87,7 +87,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                 <div id="content">
 
                     <!-- Topbar -->
-                    <?php include_once('includes/topbar.php'); ?>
+                    <?php include_once(__DIR__ .'/../components/topbar.php');?>
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
@@ -112,7 +112,7 @@ if (strlen($_SESSION['aid'] == 0)) {
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <label for="inputSubject">Current Logo</label>
-                                                    <img src="uploadeddata/<?php echo $row['siteLogo']; ?>" width="250">
+                                                    <img src="<?=BASEURL .'/img/uploadeddata/'. $row['siteLogo']; ?>" width="250">
                                                 </div>
 
 
@@ -151,28 +151,28 @@ if (strlen($_SESSION['aid'] == 0)) {
                 </div>
                 <!-- End of Main Content -->
 
-                <?php include_once('includes/footer.php'); ?>
+                <?php include_once(__DIR__ .'/../components/footer.php');?>
 
-            </div>
-            <!-- End of Content Wrapper -->
+</div>
+<!-- End of Content Wrapper -->
 
-        </div>
-        <!-- End of Page Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
 
-        <!-- Scroll to Top Button-->
+<!-- Scroll to Top Button-->
 
-        <?php include_once('includes/footer2.php'); ?>
+<?php include_once(__DIR__ .'/../components/footer2.php');?>
 
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="../js/sb-admin-2.min.js"></script>
 
     </body>
 
