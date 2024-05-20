@@ -62,11 +62,11 @@ while($row1=mysqli_fetch_array($ret1)){
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profile">
+                                <a class="dropdown-item" href="<?=BASEURL .'/profile'?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="change-password">
+                                <a class="dropdown-item" href="<?=BASEURL .'/change-password'?>">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                   Change Password
                                 </a>
